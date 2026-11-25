@@ -9,7 +9,7 @@ dvwaPageStartup(array('authenticated', 'phpids'));
 dvwaDatabaseConnect();
 
 $page = dvwaPageNewGrab();
-$page['title'] = 'Vulnerability: Broken Access Control' . $page['title_separator'] . $page['title'];
+$page['title'] = 'Profil pengguna' . $page['title_separator'] . $page['title'];
 $page['page_id'] = 'bac';
 $page['help_button'] = 'bac';
 $page['source_button'] = 'bac';
@@ -137,7 +137,7 @@ $page['body'] .= "
 
 $page['body'] .= "
 <div class=\"body_padded\">
-    <h1>Vulnerability: Broken Access Control</h1>
+    <h1>Profil pengguna</h1>
 
     <div class=\"vulnerable_code_area\">
         ";
@@ -163,11 +163,12 @@ $page['body'] .= "
 
     <br />
 
-    <h2>More Information</h2>
+    <details><summary>Referensi teknis</summary>
 	<ul>
 		<li>" . dvwaExternalLinkUrlGet('https://owasp.org/Top10/A01_2021-Broken_Access_Control/') . "</li>
 		<li>" . dvwaExternalLinkUrlGet('https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/02-Testing_for_Bypassing_Authorization_Schema') . "</li>
 	</ul>
+	</details>
 </div>";
 
 dvwaHtmlEcho($page);

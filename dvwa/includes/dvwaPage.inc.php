@@ -178,7 +178,7 @@ function dvwaCurrentUser() {
 
 function &dvwaPageNewGrab() {
 	$returnArray = array(
-		'title'           => 'Damn Vulnerable Web Application (DVWA)',
+		'title'           => 'Website Kementerian',
 		'title_separator' => ' :: ',
 		'body'            => '',
 		'page_id'         => '',
@@ -283,62 +283,64 @@ function dvwaHtmlEcho( $pPage ) {
 
 	$menuBlocks[ 'home' ] = array();
 	if( dvwaIsLoggedIn() ) {
-		$menuBlocks[ 'home' ][] = array( 'id' => 'home', 'name' => 'Home', 'url' => '.' );
-		$menuBlocks[ 'home' ][] = array( 'id' => 'instructions', 'name' => 'Instructions', 'url' => 'instructions.php' );
-		$menuBlocks[ 'home' ][] = array( 'id' => 'setup', 'name' => 'Setup / Reset DB', 'url' => 'setup.php' );
+		$menuBlocks[ 'home' ][] = array( 'id' => 'home', 'name' => 'Dashboard layanan', 'url' => '.' );
+		$menuBlocks[ 'home' ][] = array( 'id' => 'instructions', 'name' => 'Panduan portal', 'url' => 'instructions.php' );
+		$menuBlocks[ 'home' ][] = array( 'id' => 'setup', 'name' => 'Pengaturan basis data', 'url' => 'setup.php' );
 	}
 	else {
-		$menuBlocks[ 'home' ][] = array( 'id' => 'setup', 'name' => 'Setup DVWA', 'url' => 'setup.php' );
-		$menuBlocks[ 'home' ][] = array( 'id' => 'instructions', 'name' => 'Instructions', 'url' => 'instructions.php' );
+		$menuBlocks[ 'home' ][] = array( 'id' => 'setup', 'name' => 'Pengaturan basis data', 'url' => 'setup.php' );
+		$menuBlocks[ 'home' ][] = array( 'id' => 'instructions', 'name' => 'Panduan portal', 'url' => 'instructions.php' );
 	}
 
 	if( dvwaIsLoggedIn() ) {
 		$menuBlocks[ 'vulnerabilities' ] = array();
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'brute', 'name' => 'Brute Force', 'url' => 'vulnerabilities/brute/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'exec', 'name' => 'Command Injection', 'url' => 'vulnerabilities/exec/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'csrf', 'name' => 'CSRF', 'url' => 'vulnerabilities/csrf/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'fi', 'name' => 'File Inclusion', 'url' => 'vulnerabilities/fi/.?page=include.php' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'upload', 'name' => 'File Upload', 'url' => 'vulnerabilities/upload/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'captcha', 'name' => 'Insecure CAPTCHA', 'url' => 'vulnerabilities/captcha/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'sqli', 'name' => 'SQL Injection', 'url' => 'vulnerabilities/sqli/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'sqli_blind', 'name' => 'SQL Injection (Blind)', 'url' => 'vulnerabilities/sqli_blind/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'weak_id', 'name' => 'Weak Session IDs', 'url' => 'vulnerabilities/weak_id/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'xss_d', 'name' => 'XSS (DOM)', 'url' => 'vulnerabilities/xss_d/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'xss_r', 'name' => 'XSS (Reflected)', 'url' => 'vulnerabilities/xss_r/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'xss_s', 'name' => 'XSS (Stored)', 'url' => 'vulnerabilities/xss_s/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'csp', 'name' => 'CSP Bypass', 'url' => 'vulnerabilities/csp/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'javascript', 'name' => 'JavaScript Attacks', 'url' => 'vulnerabilities/javascript/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'brute', 'name' => 'Autentikasi pegawai', 'url' => 'vulnerabilities/brute/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'exec', 'name' => 'Diagnostik jaringan', 'url' => 'vulnerabilities/exec/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'csrf', 'name' => 'Pengaturan kata sandi', 'url' => 'vulnerabilities/csrf/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'fi', 'name' => 'Arsip dokumen', 'url' => 'vulnerabilities/fi/.?page=include.php' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'upload', 'name' => 'Unggah berkas', 'url' => 'vulnerabilities/upload/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'captcha', 'name' => 'Verifikasi akun', 'url' => 'vulnerabilities/captcha/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'sqli', 'name' => 'Direktori pegawai', 'url' => 'vulnerabilities/sqli/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'sqli_blind', 'name' => 'Verifikasi ID pegawai', 'url' => 'vulnerabilities/sqli_blind/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'weak_id', 'name' => 'Sesi pengguna', 'url' => 'vulnerabilities/weak_id/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'xss_d', 'name' => 'Preferensi bahasa', 'url' => 'vulnerabilities/xss_d/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'xss_r', 'name' => 'Formulir pengunjung', 'url' => 'vulnerabilities/xss_r/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'xss_s', 'name' => 'Buku tamu', 'url' => 'vulnerabilities/xss_s/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'csp', 'name' => 'Kebijakan konten', 'url' => 'vulnerabilities/csp/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'javascript', 'name' => 'Validasi formulir', 'url' => 'vulnerabilities/javascript/' );
 		if (dvwaCurrentUser() == "admin") {
-			$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'authbypass', 'name' => 'Authorisation Bypass', 'url' => 'vulnerabilities/authbypass/' );
+			$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'authbypass', 'name' => 'Administrasi pengguna', 'url' => 'vulnerabilities/authbypass/' );
 		}
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'open_redirect', 'name' => 'Open HTTP Redirect', 'url' => 'vulnerabilities/open_redirect/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'encryption', 'name' => 'Cryptography', 'url' => 'vulnerabilities/cryptography/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'api', 'name' => 'API', 'url' => 'vulnerabilities/api/' );
-		# $menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'bac', 'name' => 'Broken Access Control', 'url' => 'vulnerabilities/bac/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'open_redirect', 'name' => 'Pustaka tautan', 'url' => 'vulnerabilities/open_redirect/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'encryption', 'name' => 'Pengolahan sandi', 'url' => 'vulnerabilities/cryptography/' );
+		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'api', 'name' => 'Integrasi layanan', 'url' => 'vulnerabilities/api/' );
+		# $menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'bac', 'name' => 'Profil pengguna', 'url' => 'vulnerabilities/bac/' );
 	}
 
 	$menuBlocks[ 'meta' ] = array();
 	if( dvwaIsLoggedIn() ) {
-		$menuBlocks[ 'meta' ][] = array( 'id' => 'security', 'name' => 'DVWA Security', 'url' => 'security.php' );
-		$menuBlocks[ 'meta' ][] = array( 'id' => 'phpinfo', 'name' => 'PHP Info', 'url' => 'phpinfo.php' );
+		$menuBlocks[ 'meta' ][] = array( 'id' => 'security', 'name' => 'Tingkat keamanan', 'url' => 'security.php' );
+		$menuBlocks[ 'meta' ][] = array( 'id' => 'phpinfo', 'name' => 'Informasi PHP', 'url' => 'phpinfo.php' );
 	}
-	$menuBlocks[ 'meta' ][] = array( 'id' => 'about', 'name' => 'About', 'url' => 'about.php' );
+	$menuBlocks[ 'meta' ][] = array( 'id' => 'about', 'name' => 'Tentang portal', 'url' => 'about.php' );
 
 	if( dvwaIsLoggedIn() ) {
 		$menuBlocks[ 'logout' ] = array();
-		$menuBlocks[ 'logout' ][] = array( 'id' => 'logout', 'name' => 'Logout', 'url' => 'logout.php' );
+		$menuBlocks[ 'logout' ][] = array( 'id' => 'logout', 'name' => 'Keluar', 'url' => 'logout.php' );
 	}
 
 	$menuHtml = '';
 
-	foreach( $menuBlocks as $menuBlock ) {
+	$menuTitles = array( 'home' => 'Portal', 'vulnerabilities' => 'Layanan', 'meta' => 'Informasi', 'logout' => 'Akun' );
+	foreach( $menuBlocks as $group => $menuBlock ) {
 		$menuBlockHtml = '';
 		foreach( $menuBlock as $menuItem ) {
 			$selectedClass = ( $menuItem[ 'id' ] == $pPage[ 'page_id' ] ) ? 'selected' : '';
 			$fixedUrl = DVWA_WEB_PAGE_TO_ROOT.$menuItem[ 'url' ];
 			$menuBlockHtml .= "<li class=\"{$selectedClass}\"><a href=\"{$fixedUrl}\">{$menuItem[ 'name' ]}</a></li>\n";
 		}
-		$menuHtml .= "<ul class=\"menuBlocks\">{$menuBlockHtml}</ul>";
+		$anchor = $group === 'vulnerabilities' ? ' id="layanan"' : '';
+		$menuHtml .= "<h2 class=\"menu-title\"{$anchor}>{$menuTitles[$group]}</h2><ul class=\"menuBlocks\">{$menuBlockHtml}</ul>";
 	}
 
 	// Get security cookie --
@@ -359,9 +361,9 @@ function dvwaHtmlEcho( $pPage ) {
 	}
 	// -- END (security cookie)
 
-	$userInfoHtml = '<em>Username:</em> ' . ( dvwaCurrentUser() );
-	$securityLevelHtml = "<em>Security Level:</em> {$securityLevelHtml}";
-	$localeHtml = '<em>Locale:</em> ' . ( dvwaLocaleGet() );
+	$userInfoHtml = '<em>Pengguna:</em> ' . ( dvwaCurrentUser() );
+	$securityLevelHtml = "<em>Tingkat keamanan:</em> {$securityLevelHtml}";
+	$localeHtml = '<em>Bahasa:</em> ' . ( dvwaLocaleGet() );
 	$sqliDbHtml = '<em>SQLi DB:</em> ' . ( dvwaSQLiDBGet() );
 
 
@@ -380,6 +382,10 @@ function dvwaHtmlEcho( $pPage ) {
 		$systemInfoHtml = dvwaButtonHelpHtmlGet( $pPage[ 'help_button' ] ) . " $systemInfoHtml";
 	}
 
+	if( $systemInfoHtml !== '' ) {
+		$systemInfoHtml = "<details id=\"system_info\"><summary>Informasi teknis</summary>{$systemInfoHtml}</details>";
+	}
+
 	// Send Headers + main HTML code
 	Header( 'Cache-Control: no-cache, must-revalidate');   // HTTP/1.1
 	Header( 'Content-Type: text/html;charset=utf-8' );     // TODO- proper XHTML headers...
@@ -387,16 +393,18 @@ function dvwaHtmlEcho( $pPage ) {
 
 	echo "<!DOCTYPE html>
 
-<html lang=\"en-GB\">
+<html lang=\"id\">
 
 	<head>
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
 
+		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+		<link rel=\"stylesheet\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/css/portal.css\" />
 		<title>{$pPage[ 'title' ]}</title>
 
 		<link rel=\"stylesheet\" type=\"text/css\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/css/main.css\" />
 
-		<link rel=\"icon\" type=\"\image/ico\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "favicon.ico\" />
+		<link rel=\"icon\" type=\"image/x-icon\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "favicon.ico\" />
 
 		<script type=\"text/javascript\" src=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/js/dvwaPage.js\"></script>
 
@@ -405,40 +413,28 @@ function dvwaHtmlEcho( $pPage ) {
 	<body class=\"home " . dvwaThemeGet() . "\">
 		<div id=\"container\">
 
-			<div id=\"header\">
+			<header id=\"header\" class=\"masthead\">
+				<div class=\"masthead-inner\">
+					<a class=\"brand\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "index.php\"><span class=\"monogram\" aria-hidden=\"true\">WK</span>Website Kementerian</a>
+					<div class=\"header-actions\">
+						<a class=\"menu-jump\" href=\"#main_menu\">Menu</a>
 
-				<img src=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/images/logo.png\" alt=\"Damn Vulnerable Web Application\" />
-                <a href=\"#\" onclick=\"javascript:toggleTheme();\" class=\"theme-icon\" title=\"Toggle theme between light and dark.\">
-                    <img src=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/images/theme-light-dark.png\" alt=\"Damn Vulnerable Web Application\" />
-                </a>
-			</div>
-
-			<div id=\"main_menu\">
-
-				<div id=\"main_menu_padded\">
-				{$menuHtml}
+						<button type=\"button\" onclick=\"toggleTheme()\" class=\"theme-icon\">Ganti tema</button>
+					</div>
 				</div>
-
-			</div>
-
-			<div id=\"main_body\">
-
-				{$pPage[ 'body' ]}
-				<br /><br />
+			</header>
+			<div class=\"portal-layout\">
+				<nav id=\"main_menu\" aria-label=\"Navigasi portal\">
+					{$menuHtml}
+				</nav>
+				<main id=\"main_body\">
+					{$pPage[ 'body' ]}
 				{$messagesHtml}
-
+					{$systemInfoHtml}
+				</main>
 			</div>
-
-			<div class=\"clear\">
-			</div>
-
-			<div id=\"system_info\">
-				{$systemInfoHtml}
-			</div>
-
 			<div id=\"footer\">
-
-				<p>Damn Vulnerable Web Application (DVWA)</p>
+				<p>Website Kementerian <span>Portal layanan</span></p>
 				<script src='" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/js/add_event_listeners.js'></script>
 
 			</div>
@@ -465,17 +461,20 @@ function dvwaHelpHtmlEcho( $pPage ) {
 
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
 
+		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+		<link rel=\"stylesheet\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/css/portal.css\" />
 		<title>{$pPage[ 'title' ]}</title>
 
 		<link rel=\"stylesheet\" type=\"text/css\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/css/help.css\" />
 
-		<link rel=\"icon\" type=\"\image/ico\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "favicon.ico\" />
+		<link rel=\"icon\" type=\"image/x-icon\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "favicon.ico\" />
 
 	</head>
 
 	<body class=\"" . dvwaThemeGet() . "\">
 
-	<div id=\"container\">
+	<header class=\"popup-header\" lang=\"id\">Website Kementerian</header>
+		<div id=\"container\">
 
 			{$pPage[ 'body' ]}
 
@@ -501,16 +500,19 @@ function dvwaSourceHtmlEcho( $pPage ) {
 
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
 
+		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+		<link rel=\"stylesheet\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/css/portal.css\" />
 		<title>{$pPage[ 'title' ]}</title>
 
 		<link rel=\"stylesheet\" type=\"text/css\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/css/source.css\" />
 
-		<link rel=\"icon\" type=\"\image/ico\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "favicon.ico\" />
+		<link rel=\"icon\" type=\"image/x-icon\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "favicon.ico\" />
 
 	</head>
 
 	<body class=\"" . dvwaThemeGet() . "\">
 
+		<header class=\"popup-header\" lang=\"id\">Website Kementerian</header>
 		<div id=\"container\">
 
 			{$pPage[ 'body' ]}
@@ -536,13 +538,13 @@ function dvwaExternalLinkUrlGet( $pLink,$text=null ) {
 function dvwaButtonHelpHtmlGet( $pId ) {
 	$security = dvwaSecurityLevelGet();
 	$locale = dvwaLocaleGet();
-	return "<input type=\"button\" value=\"View Help\" class=\"popup_button\" id='help_button' data-help-url='" . DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/view_help.php?id={$pId}&security={$security}&locale={$locale}' )\">";
+	return "<input type=\"button\" value=\"Bantuan\" class=\"popup_button\" id='help_button' data-help-url='" . DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/view_help.php?id={$pId}&security={$security}&locale={$locale}' )\">";
 }
 
 
 function dvwaButtonSourceHtmlGet( $pId ) {
 	$security = dvwaSecurityLevelGet();
-	return "<input type=\"button\" value=\"View Source\" class=\"popup_button\" id='source_button' data-source-url='" . DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/view_source.php?id={$pId}&security={$security}' )\">";
+	return "<input type=\"button\" value=\"Lihat kode\" class=\"popup_button\" id='source_button' data-source-url='" . DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/view_source.php?id={$pId}&security={$security}' )\">";
 }
 
 

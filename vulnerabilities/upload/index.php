@@ -6,7 +6,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: File Upload' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Unggah berkas' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'upload';
 $page[ 'help_button' ]   = 'upload';
 $page[ 'source_button' ] = 'upload';
@@ -43,14 +43,14 @@ if( ( !extension_loaded( 'gd' ) || !function_exists( 'gd_info' ) ) ) {
 
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
-	<h1>Vulnerability: File Upload</h1>
+	<h1>Unggah berkas</h1>
 
 	{$WarningHtml}
 
 	<div class=\"vulnerable_code_area\">
 		<form enctype=\"multipart/form-data\" action=\"#\" method=\"POST\">
 			<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"100000\" />
-			Choose an image to upload:<br /><br />
+			Pilih berkas gambar yang akan dikirim:<br /><br />
 			<input name=\"uploaded\" type=\"file\" /><br />
 			<br />
 			<input type=\"submit\" name=\"Upload\" value=\"Upload\" />\n";
@@ -63,11 +63,12 @@ $page[ 'body' ] .= "
 		{$html}
 	</div>
 
-	<h2>More Information</h2>
+	<details><summary>Referensi teknis</summary>
 	<ul>
 		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.acunetix.com/websitesecurity/upload-forms-threat/' ) . "</li>
 	</ul>
+	</details>
 </div>";
 
 dvwaHtmlEcho( $page );

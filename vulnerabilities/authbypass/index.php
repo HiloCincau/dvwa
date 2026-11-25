@@ -6,7 +6,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: Authorisation Bypass' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Administrasi pengguna' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'authbypass';
 $page[ 'help_button' ]   = 'authbypass';
 $page[ 'source_button' ] = 'authbypass';
@@ -34,15 +34,15 @@ require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/authbypass/source/{$vulner
 
 $page[ 'body' ] .= '
 <div class="body_padded">
-	<h1>Vulnerability: Authorisation Bypass</h1>
+	<h1>Administrasi pengguna</h1>
 
-	<p>This page should only be accessible by the admin user. Your challenge is to gain access to the features using one of the other users, for example <i>gordonb</i> / <i>abc123</i>.</p>
+	<p>Kelola identitas dan informasi akun pegawai.</p>
 
 	<div class="vulnerable_code_area">
 	<div style="font-weight: bold;color: red;font-size: 120%;" id="save_result"></div>
 	<div id="user_form"></div>
 	<p>
-		Welcome to the user manager, please enjoy updating your user\'s details.
+		Pilih akun yang ingin diperbarui.
 	</p>
 	';
 

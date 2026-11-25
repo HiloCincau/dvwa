@@ -6,7 +6,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: JavaScript Attacks' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Validasi formulir' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'javascript';
 $page[ 'help_button' ]   = 'javascript';
 $page[ 'source_button' ] = 'javascript';
@@ -75,21 +75,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 if ( dvwaSecurityLevelGet() == "impossible" ) {
 $page[ 'body' ] = <<<EOF
 <div class="body_padded">
-	<h1>Vulnerability: JavaScript Attacks</h1>
+	<h1>Validasi formulir</h1>
 
 	<div class="vulnerable_code_area">
 	<p>
-		You can never trust anything that comes from the user or prevent them from messing with it and so there is no impossible level.
+		Validasi formulir ini tidak tersedia pada konfigurasi saat ini.
 	</p>
 EOF;
 } else {
 $page[ 'body' ] = <<<EOF
 <div class="body_padded">
-	<h1>Vulnerability: JavaScript Attacks</h1>
+	<h1>Validasi formulir</h1>
 
 	<div class="vulnerable_code_area">
 	<p>
-		Submit the word "success" to win.
+		Masukkan kode konfirmasi "success" untuk memvalidasi formulir.
 	</p>
 
 	$message
@@ -109,12 +109,13 @@ $page[ 'body' ] .= <<<EOF
 EOF;
 
 $page[ 'body' ] .= "
-	<h2>More Information</h2>
+	<details><summary>Referensi teknis</summary>
 	<ul>
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.w3schools.com/js/' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.youtube.com/watch?v=cs7EQdWO5o0&index=17&list=WL' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://ponyfoo.com/articles/es6-proxies-in-depth' ) . "</li>
 	</ul>
+	</details>
 	<p><i>Module developed by <a href='https://twitter.com/digininja'>Digininja</a>.</i></p>
 </div>\n";
 

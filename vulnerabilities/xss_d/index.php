@@ -6,7 +6,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: DOM Based Cross Site Scripting (XSS)' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Preferensi bahasa' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'xss_d';
 $page[ 'help_button' ]   = 'xss_d';
 $page[ 'source_button' ] = 'xss_d';
@@ -39,11 +39,11 @@ if ($vulnerabilityFile == 'impossible.php') {
 
 $page[ 'body' ] = <<<EOF
 <div class="body_padded">
-	<h1>Vulnerability: DOM Based Cross Site Scripting (XSS)</h1>
+	<h1>Preferensi bahasa</h1>
 
 	<div class="vulnerable_code_area">
  
- 		<p>Please choose a language:</p>
+		<p>Pilih bahasa layanan:</p>
 
 		<form name="XSS" method="GET">
 			<select name="default">
@@ -66,12 +66,13 @@ $page[ 'body' ] = <<<EOF
 EOF;
 
 $page[ 'body' ] .= "
-	<h2>More Information</h2>
+	<details><summary>Referensi teknis</summary>
 	<ul>
 		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/xss/' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/DOM_Based_XSS' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.acunetix.com/blog/articles/dom-xss-explained/' ) . "</li>
 	</ul>
+	</details>
 </div>\n";
 
 dvwaHtmlEcho( $page );

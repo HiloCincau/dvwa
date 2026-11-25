@@ -6,7 +6,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: Weak Session IDs' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Sesi pengguna' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'weak_id';
 $page[ 'help_button' ]   = 'weak_id';
 $page[ 'source_button' ] = 'weak_id';
@@ -35,9 +35,9 @@ require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/weak_id/source/{$vulnerabi
 
 $page[ 'body' ] .= <<<EOF
 <div class="body_padded">
-	<h1>Vulnerability: Weak Session IDs</h1>
+	<h1>Sesi pengguna</h1>
 	<p>
-		This page will set a new cookie called dvwaSession each time the button is clicked.<br />
+		Buat pengenal baru untuk sesi pengguna.<br />
 	</p>
 	<form method="post">
 		<input type="submit" value="Generate" />

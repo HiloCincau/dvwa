@@ -7,7 +7,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . "external/recaptcha/recaptchalib.php";
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: Insecure CAPTCHA' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Verifikasi akun' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'captcha';
 $page[ 'help_button' ]   = 'captcha';
 $page[ 'source_button' ] = 'captcha';
@@ -43,7 +43,7 @@ if( $_DVWA[ 'recaptcha_public_key' ] == "" ) {
 
 $page[ 'body' ] .= "
 	<div class=\"body_padded\">
-	<h1>Vulnerability: Insecure CAPTCHA</h1>
+	<h1>Verifikasi akun</h1>
 
 	{$WarningHtml}
 
@@ -54,7 +54,7 @@ if( $hide_form )
 	$page[ 'body' ] .= "style=\"display:none;\"";
 
 $page[ 'body' ] .= ">
-			<h3>Change your password:</h3>
+			<h3>Ubah kata sandi</h3>
 			<br />
 
 			<input type=\"hidden\" name=\"step\" value=\"1\" />\n";
@@ -85,12 +85,13 @@ $page[ 'body' ] .= "
 		{$html}
 	</div>
 
-	<h2>More Information</h2>
+	<details><summary>Referensi teknis</summary>
 	<ul>
 		<li>" . dvwaExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/CAPTCHA' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.google.com/recaptcha/' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-project-automated-threats-to-web-applications/assets/oats/EN/OAT-009_CAPTCHA_Defeat' ) . "</li>
 	</ul>
+	</details>
 </div>\n";
 
 dvwaHtmlEcho( $page );

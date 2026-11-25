@@ -1,59 +1,27 @@
-body {
-	background: #fefffe;
-	font: 12px/15px Arial, Helvetica, sans-serif;
-	line-height: 20px;
-	color: #6b6b6b;
+.login-page { min-height: 100vh; display: flex; flex-direction: column; }
+.login-panel {
+	display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 330px); align-items: start;
+	gap: clamp(1.5rem, 3.5vw, 3rem); width: min(1180px, 92%); margin: 2.5rem auto; flex: 1;
 }
-
-#wrapper {
-	text-align: center;
-	margin: 0 auto;
+.login-form {
+	padding: clamp(1.25rem, 2.4vw, 2rem); border: 1px solid var(--line); border-top: 4px solid var(--forest);
+	border-radius: 6px; background: var(--surface);
 }
-
-#content {
-	display: inline-block;
-	padding: 20px;
-	width: auto;
+.login-form h2 { margin: 0; font-size: 1.5rem; font-weight: 650; letter-spacing: -.03em; }
+.login-form p { color: var(--muted); margin: .6rem 0 2rem; }
+.login-form label { display: block; font-weight: 600; margin: 1rem 0 .45rem; }
+.login-form input:not([type=hidden]) {
+	display: block; width: 100%; padding: .7rem; font: inherit; border: 1px solid #97aa9f; border-radius: 4px; background: white;
 }
-
-#footer {
-	position: absolute;
-	width: 100%;
-	height: 50px;
-	bottom: 0px;
-	left: 0px;
+.login-form button {
+	display: flex; justify-content: space-between; align-items: center; margin-top: 1.75rem;
+	width: 100%; padding: .8rem 1.1rem; border: 0; border-radius: 4px; background: var(--forest); color: white; font: inherit; font-weight: 600; cursor: pointer;
 }
-
-label {
-	float: left;
-	text-align: right;
-	margin-right: 0.5em;
-	display: block;
-	overflow: hidden;
-	padding-right: 50px;
-	font-weight: bold;
+.login-form button:hover { background: #2c584b; }
+.login-footer { border-top: 1px solid var(--line); padding-block: 1.4rem; color: var(--muted); font-size: .85rem; }
+@media (max-width: 760px) {
+	.login-panel { display: flex; flex-direction: column; margin-block: 1.25rem; }
+	.login-panel > * { width: 100%; }
+	.login-form { order: -1; }
+	.login-form p { margin-bottom: .6rem; }
 }
-
-.loginInput {
-	float: left;
-	color: #6B6B6B;
-	width: 320px;
-	background-color: #F4F4F4;
-	border: 1px;
-	border-style: solid;
-	border-color: #c4c4c4;
-	padding: 6px;
-	margin-bottom: 12px;
-}
-
-fieldset {
-	width: 350px;
-	padding: 10px 20px 10px 20px;
-	overflow: hidden;
-	border-style: none;
-}
-
-p {
-	font-size: 10px;
-}
-

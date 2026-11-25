@@ -6,7 +6,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: Brute Force' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Autentikasi pegawai' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'brute';
 $page[ 'help_button' ]   = 'brute';
 $page[ 'source_button' ] = 'brute';
@@ -34,10 +34,10 @@ require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/brute/source/{$vulnerabili
 
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
-	<h1>Vulnerability: Brute Force</h1>
+	<h1>Autentikasi pegawai</h1>
 
 	<div class=\"vulnerable_code_area\">
-		<h2>Login</h2>
+		<h2>Masuk ke layanan</h2>
 
 		<form action=\"#\" method=\"{$method}\">
 			Username:<br />
@@ -55,11 +55,12 @@ $page[ 'body' ] .= "
 		{$html}
 	</div>
 
-	<h2>More Information</h2>
+	<details><summary>Referensi teknis</summary>
 	<ul>
 		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/Brute_force_attack' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.golinuxcloud.com/brute-force-attack-web-forms' ) . "</li>
 	</ul>
+	</details>
 </div>\n";
 
 dvwaHtmlEcho( $page );

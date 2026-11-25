@@ -6,7 +6,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: SQL Injection (Blind)' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Verifikasi ID pegawai' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'sqli_blind';
 $page[ 'help_button' ]   = 'sqli_blind';
 $page[ 'source_button' ] = 'sqli_blind';
@@ -45,7 +45,7 @@ if( ini_get( 'safe_mode' ) == true ) {
 
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
-	<h1>Vulnerability: SQL Injection (Blind)</h1>
+	<h1>Verifikasi ID pegawai</h1>
 
 	{$WarningHtml}
 
@@ -83,13 +83,14 @@ $page[ 'body' ] .= "
 		{$html}
 	</div>
 
-	<h2>More Information</h2>
+	<details><summary>Referensi teknis</summary>
 	<ul>
 		<li>" . dvwaExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/SQL_injection' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/Blind_SQL_Injection' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://bobby-tables.com/' ) . "</li>
 	</ul>
+	</details>
 </div>\n";
 
 dvwaHtmlEcho( $page );

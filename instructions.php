@@ -7,7 +7,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/Parsedown.php';
 dvwaPageStartup( array( ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Instructions' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Panduan portal' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'instructions';
 
 $docs = array(
@@ -51,15 +51,19 @@ foreach( array_keys( $docs ) as $docId ) {
 }
 $docMenuHtml = "<div class=\"submenu\">{$docMenuHtml}</div>";
 
+$openDocs = isset( $_GET['doc'] ) ? ' open' : '';
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
-	<h1>Instructions</h1>
+	<h1>Panduan portal</h1>
 
+	<p>Lihat rekap permohonan di dashboard. Gunakan menu Layanan untuk membuka direktori pegawai, mengirim berkas, atau mengisi buku tamu.</p>
+	<details{$openDocs}><summary>Dokumentasi teknis</summary>
 	{$docMenuHtml}
 
 	<span class=\"fixed\">
 		{$instructions}
 	</span>
+	</details>
 </div>";
 
 dvwaHtmlEcho( $page );

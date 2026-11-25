@@ -6,7 +6,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: Content Security Policy (CSP) Bypass' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Kebijakan konten' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'csp';
 $page[ 'help_button' ]   = 'csp';
 $page[ 'source_button' ] = 'csp';
@@ -31,7 +31,7 @@ switch( dvwaSecurityLevelGet() ) {
 
 $page[ 'body' ] = <<<EOF
 <div class="body_padded">
-	<h1>Vulnerability: Content Security Policy (CSP) Bypass</h1>
+	<h1>Kebijakan konten</h1>
 
 	<div class="vulnerable_code_area">
 EOF;
@@ -43,12 +43,13 @@ $page[ 'body' ] .= <<<EOF
 EOF;
 
 $page[ 'body' ] .= "
-	<h2>More Information</h2>
+	<details><summary>Referensi teknis</summary>
 	<ul>
 		<li>" . dvwaExternalLinkUrlGet( 'https://content-security-policy.com/', "Content Security Policy Reference" ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP', "Mozilla Developer Network - CSP: script-src") . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://blog.mozilla.org/security/2014/10/04/csp-for-the-web-we-have/', "Mozilla Security Blog - CSP for the web we have" ) . "</li>
 	</ul>
+	</details>
 	<p><i>Module developed by <a href='https://twitter.com/digininja'>Digininja</a>.</i></p>
 </div>\n";
 

@@ -6,7 +6,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: Cross Site Request Forgery (CSRF)' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Pengaturan kata sandi' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'csrf';
 $page[ 'help_button' ]   = 'csrf';
 $page[ 'source_button' ] = 'csrf';
@@ -43,10 +43,10 @@ function testFunct() {
 
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
-	<h1>Vulnerability: Cross Site Request Forgery (CSRF)</h1>
+	<h1>Pengaturan kata sandi</h1>
 
 	<div class=\"vulnerable_code_area\">
-		<h3>Change your admin password:</h3>
+		<h3>Ubah kata sandi administrator</h3>
 		<br /> 
 		<div id=\"test_credentials\">
 			".$testCredentials ."
@@ -74,6 +74,7 @@ $page[ 'body' ] .= "
 		</form>
 		{$html}
 	</div>
+		<details><summary>Catatan kompatibilitas</summary>
 		<p>Note: Browsers are starting to default to setting the <a href='https://web.dev/samesite-cookies-explained/'>SameSite cookie</a> flag to Lax, and in doing so are killing off some types of CSRF attacks. When they have completed their mission, this lab will not work as originally expected.</p>
 		<p>Announcements:</p>
 		<ul>
@@ -82,13 +83,15 @@ $page[ 'body' ] .= "
 			<li><a href='https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/'>Firefox</a></li>
 		</ul>
 		<p>As an alternative to the normal attack of hosting the malicious URLs or code on a separate host, you could try using other vulnerabilities in this app to store them, the Stored XSS lab would be a good place to start.</p>
+		</details>
 
-	<h2>More Information</h2>
+	<details><summary>Referensi teknis</summary>
 	<ul>
 		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/csrf' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.cgisecurity.com/csrf-faq.html' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/Cross-site_request_forgery ' ) . "</li>
 	</ul>
+	</details>
 </div>\n";
 
 dvwaHtmlEcho( $page );

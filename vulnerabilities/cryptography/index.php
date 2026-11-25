@@ -6,7 +6,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: Cryptography Problems' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Pengolahan sandi' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'cryptography';
 $page[ 'help_button' ]   = 'cryptography';
 $page[ 'source_button' ] = 'cryptography';
@@ -32,7 +32,7 @@ switch( dvwaSecurityLevelGet() ) {
 require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/cryptography/source/{$vulnerabilityFile}";
 
 $page[ 'body' ] .= "<div class=\"body_padded\">
-	<h1>Vulnerability: Cryptography Problems</h1>
+	<h1>Pengolahan sandi</h1>
 
 	<div class=\"vulnerable_code_area\">
 ";
@@ -41,7 +41,7 @@ $page[ 'body' ] .= "
 		{$html}
 	</div>
 
-	<h2>More Information</h2>
+	<details><summary>Referensi teknis</summary>
 	<ul>
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.scottbrady91.com/cryptopals/implementing-and-breaking-aes-ecb', "Implementing and breaking AES ECB") . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation', "Wikipedia - Block cipher mode of operation" ) . "</li>
@@ -56,6 +56,7 @@ $page[ 'body' ] .= "
 		<li>" . dvwaExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/XOR_cipher', "XOR Cipher") . "</li> 
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.youtube.com/watch?v=7WySPRERN0Q', "Video walk-through by CryptoCat") . "</li> 
 	</ul>
+	</details>
 </div>\n";
 
 dvwaHtmlEcho( $page );

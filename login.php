@@ -28,7 +28,7 @@ if( isset( $_POST[ 'Login' ] ) ) {
 
 	// Validate that username and password are not empty (improved login validation).
 	if( trim( $user ) === '' || trim( $_POST[ 'password' ] ) === '' ) {
-		dvwaMessagePush( 'Username and password cannot be empty. Login failed.' );
+		dvwaMessagePush( 'Isi nama pengguna dan kata sandi untuk masuk.' );
 		dvwaRedirect( 'login.php' );
 		exit;
 	}
@@ -39,20 +39,20 @@ if( isset( $_POST[ 'Login' ] ) ) {
 				LIMIT 1");
 	$result = @mysqli_query($GLOBALS["___mysqli_ston"],  $query );
 	if( mysqli_num_rows( $result ) != 1 ) {
-		dvwaMessagePush( "First time using DVWA.<br />Need to run 'setup.php'." );
+		dvwaMessagePush( "Siapkan basis data terlebih dahulu melalui halaman pengaturan." );
 		dvwaRedirect( DVWA_WEB_PAGE_TO_ROOT . 'setup.php' );
 	}
 
 	$query  = "SELECT * FROM `users` WHERE user='$user' AND password='$pass';";
 	$result = @mysqli_query($GLOBALS["___mysqli_ston"],  $query ) or die( '<pre>' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '.<br />Try <a href="setup.php">installing again</a>.</pre>' );
 	if( $result && mysqli_num_rows( $result ) == 1 ) {    // Login Successful...
-		dvwaMessagePush( "You have logged in as '{$user}'" );
+		dvwaMessagePush( "Anda masuk sebagai '{$user}'" );
 		dvwaLogin( $user );
 		dvwaRedirect( DVWA_WEB_PAGE_TO_ROOT . 'index.php' );
 	}
 
 	// Login failed
-	dvwaMessagePush( 'Login failed' );
+	dvwaMessagePush( 'Nama pengguna atau kata sandi salah.' );
 	dvwaRedirect( 'login.php' );
 }
 
@@ -65,80 +65,39 @@ Header( 'Expires: Tue, 23 Jun 2009 12:00:00 GMT' );     // Date in the past
 // Anti-CSRF
 generateSessionToken();
 
-echo "<!DOCTYPE html>
-
-<html lang=\"en-GB\">
-
-	<head>
-
-		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
-
-		<title>Login :: Damn Vulnerable Web Application (DVWA)</title>
-
-		<link rel=\"stylesheet\" type=\"text/css\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/css/login.css\" />
-
-	</head>
-
-	<body>
-
-	<div id=\"wrapper\">
-
-	<div id=\"header\">
-
-	<br />
-
-	<p><img src=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/images/login_logo.png\" /></p>
-
-	<br />
-
-	</div> <!--<div id=\"header\">-->
-
-	<div id=\"content\">
-
-	<form action=\"login.php\" method=\"post\">
-
-	<fieldset>
-
-			<label for=\"user\">Username</label> <input type=\"text\" class=\"loginInput\" size=\"20\" name=\"username\"><br />
-
-
-			<label for=\"pass\">Password</label> <input type=\"password\" class=\"loginInput\" AUTOCOMPLETE=\"off\" size=\"20\" name=\"password\"><br />
-
-			<br />
-
-			<p class=\"submit\"><input type=\"submit\" value=\"Login\" name=\"Login\"></p>
-
-	</fieldset>
-
-	" . tokenField() . "
-
-	</form>
-
-	<br />
-
-	{$messagesHtml}
-
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-
-	</div > <!--<div id=\"content\">-->
-
-	<div id=\"footer\">
-
-	<p>" . dvwaExternalLinkUrlGet( 'https://github.com/digininja/DVWA/', 'Damn Vulnerable Web Application (DVWA)' ) . "</p>
-
-	</div> <!--<div id=\"footer\"> -->
-
-	</div> <!--<div id=\"wrapper\"> -->
-
-	</body>
-
-</html>";
-
 ?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Masuk | Website Kementerian</title>
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="dvwa/css/portal.css">
+	<link rel="stylesheet" href="dvwa/css/login.css">
+</head>
+<body class="login-page">
+	<header class="masthead">
+		<div class="masthead-inner">
+			<div class="brand"><span class="monogram" aria-hidden="true">WK</span>Website Kementerian</div>
+		</div>
+	</header>
+	<main class="login-panel">
+		<?php require DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/portalReport.inc.php'; ?>
+		<section class="login-form" aria-labelledby="login-title">
+			<h2 id="login-title">Akses pegawai</h2>
+			<p>Masuk untuk mengelola layanan kementerian.</p>
+			<form action="login.php" method="post">
+				<label for="user">Nama pengguna</label>
+				<input id="user" type="text" name="username" autocomplete="username">
+				<label for="pass">Kata sandi</label>
+				<input id="pass" type="password" name="password" autocomplete="off">
+				<?php echo tokenField(); ?>
+				<button type="submit" name="Login" value="Login">Masuk <span aria-hidden="true">&rarr;</span></button>
+			</form>
+			<?php echo $messagesHtml; ?>
+		</section>
+	</main>
+	<footer class="login-footer">Website Kementerian <span>Portal layanan</span></footer>
+</body>
+</html>

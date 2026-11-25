@@ -6,7 +6,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 dvwaPageStartup( array( 'authenticated' ) );
 
 $page = dvwaPageNewGrab();
-$page[ 'title' ]   = 'Vulnerability: Reflected Cross Site Scripting (XSS)' . $page[ 'title_separator' ].$page[ 'title' ];
+$page[ 'title' ]   = 'Formulir pengunjung' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'xss_r';
 $page[ 'help_button' ]   = 'xss_r';
 $page[ 'source_button' ] = 'xss_r';
@@ -33,7 +33,7 @@ require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/xss_r/source/{$vulnerabili
 
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
-	<h1>Vulnerability: Reflected Cross Site Scripting (XSS)</h1>
+	<h1>Formulir pengunjung</h1>
 
 	<div class=\"vulnerable_code_area\">
 		<form name=\"XSS\" action=\"#\" method=\"GET\">
@@ -51,7 +51,7 @@ $page[ 'body' ] .= "
 		{$html}
 	</div>
 
-	<h2>More Information</h2>
+	<details><summary>Referensi teknis</summary>
 	<ul>
 		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/xss/' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/xss-filter-evasion-cheatsheet' ) . "</li>
@@ -59,6 +59,7 @@ $page[ 'body' ] .= "
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.cgisecurity.com/xss-faq.html' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.scriptalert1.com/' ) . "</li>
 	</ul>
+	</details>
 </div>\n";
 
 dvwaHtmlEcho( $page );
